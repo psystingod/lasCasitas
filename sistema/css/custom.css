@@ -1,0 +1,77 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5;
+}
+
+.nav-header {
+  border: 0;
+  box-shadow: 0px 0px 2px 1px #CFD8DC;
+}
+
+.top-nav{
+  width: 100%;
+  height: auto;
+  background-color: #00796B;
+}
+
+.top-nav .container-fluid {
+  padding: 0;
+  height: auto;
+  border: 0;
+}
+
+.top-nav .container-fluid .navbar-default{
+  color: #FFFFFF;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: #03A9F4;
+}
+
+.top-nav .container-fluid .navbar-default a{
+  color: #FFFFFF;
+}
+
+.bottom-nav{
+  width: 100%;
+  height: auto;
+  background-color: #FFFFFF;
+}
+
+.navbar-default{
+  font-size: 13px;
+  text-align: center;
+  background: #FFFFFF;
+  border: 0;
+  border-radius: 0;
+}
+
+.navbar-default .fa{
+  font-size: 19px;
+}
+.navbar-default .navbar-nav>.active>a {
+
+}
+
+#menuPrincipal{
+  padding: 0;
+  margin: 0;
+}
+
+#menuPrincipal a{
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#menuPrincipal a i.fa.fa-home, #menuPrincipal a i.fa.fa-file-text {
+ padding-left: 20px;
+ padding-right: 20px;
+}
+
+#menuPrincipal li{
+  border-right: 1px solid #CFD8DC;
+
+}
