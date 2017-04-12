@@ -2,6 +2,7 @@
 
 require "conexion.php";
 
+$errores = "";
 if (isset($_SESSION['usuario'])) {
   #Si el usuario ya cuenta con una sesion redirecionamos al index
   header("Location: index.html");
@@ -28,9 +29,13 @@ $statement->execute(array(
 $login = $statement->fetch();
 
 if ($login!=false) {
+  #Si el usuario esta registrado iniciamos sesion
   $_SESSION['usuario']=$usuario ;
   header('Location: ../index.html');
+}else {
+  $errores .= "Datos incorrectos";
 }
 
+print $errores;
 
 ?>
