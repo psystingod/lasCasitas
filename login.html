@@ -12,15 +12,17 @@
     <div class="container1">
       <div class="row-fluid">
         <div class="login">
-          <form>
+          <!-- enviamos la informacion del form al mismo archivo para realizar la
+          verificacion de usuario -->
+          <form action="php/login.php" method="POST">
             <div class="form-group has-feedback">
               <label for="usuario">Usuario</label>
-              <input type="text" class="form-control" id="usuario" placeholder="Escriba su usuario">
+              <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Escriba su usuario">
               <i class="glyphicon glyphicon-user form-control-feedback"></i>
             </div>
             <div class="form-group has-feedback">
               <label for="contrasena">Contraseña</label>
-              <input type="password" class="form-control" id="contrasena" placeholder="Escriba su Contraseña">
+              <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Escriba su Contraseña">
               <i class="glyphicon glyphicon-lock form-control-feedback"></i>
             </div>
             <div class="checkbox">
