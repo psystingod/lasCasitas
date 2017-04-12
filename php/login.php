@@ -5,7 +5,7 @@ require "conexion.php";
 $errores = "";
 if (isset($_SESSION['usuario'])) {
   #Si el usuario ya cuenta con una sesion redirecionamos al index
-  header("Location: index.html");
+  header("Location: ../index.html");
 }
 
 #Comprobamos si el usuario ya envio los datos de login
