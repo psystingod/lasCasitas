@@ -9,11 +9,19 @@
 
   </head>
   <body>
+    
+  <!-- Verificamos si el usuario ya inicio secion -->
+  <?php
+    session_start();
+    // Si el usuario ya inicio secion redirigimos al index
+    if (isset($_SESSION['usuario'])) {
+      header('Location: index.php');
+    }
+   ?>
+
     <div class="container1">
       <div class="row-fluid">
         <div class="login">
-          <!-- enviamos la informacion del form al mismo archivo para realizar la
-          verificacion de usuario -->
           <form action="php/session.php" method="POST">
             <div class="form-group has-feedback">
               <label for="usuario">Usuario</label>
