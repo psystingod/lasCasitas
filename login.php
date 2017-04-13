@@ -14,7 +14,7 @@
         <div class="login">
           <!-- enviamos la informacion del form al mismo archivo para realizar la
           verificacion de usuario -->
-          <form action="php/login.php" method="POST">
+          <form action="php/session.php" method="POST">
             <div class="form-group has-feedback">
               <label for="usuario">Usuario</label>
               <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Escriba su usuario">

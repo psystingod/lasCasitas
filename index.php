@@ -11,6 +11,12 @@
     <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
+    <?php
+      session_start();
+      if(!isset($_SESSION["usuario"])) {
+        header('Location: login.php');
+      }
+     ?>
     <div class="nav-header">
       <nav class="top-nav">
         <div class="container-fluid">
@@ -22,10 +28,9 @@
               <!-- Nombre del alumno logeado -->
               <ul class="nav navbar-nav pull-right">
                 <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Diego Herrera <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?php echo $_SESSION["usuario"]; ?> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
+                  <li><a href="php/logout.php">Salir</a></li>
                 </ul>
               </li>
               </ul>

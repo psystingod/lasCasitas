@@ -33,9 +33,24 @@ body, html {
   color: #FFFFFF;
 }
 
+.top-nav .container-fluid .navbar-default .navbar-nav a:hover{
+  background: #03A9F4;
+  color: #FFFFFF;
+}
+
+.top-nav .container-fluid .navbar-default .navbar-nav a:focus {
+  color: #757575;
+  background: #FFFFFF;
+}
+
+.top-nav .container-fluid .navbar-default .navbar-nav .dropdown>ul, .top-nav .container-fluid .navbar-default .navbar-nav .dropdown>ul>li>a {
+  color: #757575;
+  background: #FFFFFF;
+}
+
 .bottom-nav{
   width: 100%;
-  height: auto;
+  height: auto
   background-color: #FFFFFF;
 }
 

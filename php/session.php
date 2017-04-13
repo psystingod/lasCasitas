@@ -1,12 +1,13 @@
-<?php session_start();
+<?php #session_start();
 
 require "conexion.php";
-
+$usuario = null;
+$contrasena = null;
 $errores = "";
-if (isset($_SESSION['usuario'])) {
+#if (isset($_SESSION['usuario'])) {
   #Si el usuario ya cuenta con una sesion redirecionamos al index
-  header("Location: ../index.html");
-}
+  #header("Location: ../index.html");
+#}
 
 #Comprobamos si el usuario ya envio los datos de login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -29,9 +30,11 @@ $statement->execute(array(
 $login = $statement->fetch();
 
 if ($login!=false) {
+  #Inicia sesion solo si el usuario existe
+  session_start();
   #Si el usuario esta registrado iniciamos sesion
   $_SESSION['usuario']=$usuario ;
-  header('Location: ../index.html');
+  header('Location: ../index.php');
 }else {
   $errores .= "Datos incorrectos";
 }
