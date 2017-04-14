@@ -36,6 +36,7 @@ if ($login!=false) {
   # Almacenamos los datos del usuario en la sesion
   $_SESSION['idalumno'] = $login['idalumno'];  # id del alumno
   $_SESSION['usuario']=$usuario ;  # Carnet del alumno
+  $_SESSION['contrasena'] =$contrasena;
   $_SESSION['nombre'] = $login['NombreAlumno'];
   $_SESSION['apellido'] = $login['ApellidoAlumno'];
   $_SESSION['nombre_completo'] = $login['NombreAlumno'] . " " . $login['ApellidoAlumno'];  # Nombre y apellido
@@ -72,5 +73,10 @@ else {
 }
 
 print $errores;
+
+
+// CLASE PARA LA RECOLECCION DE INFORMACION
+
+
 
 ?>

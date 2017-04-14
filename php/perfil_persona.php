@@ -19,21 +19,23 @@ $statement = $conexion->prepare(
   WHERE alumno.User = :usuario AND alumno.Pass = :contrasena");
 #Ejecutamos nuestra consulta
 $statement->execute(array(
-  ':usuario' => 'rp12010',
-  ':contrasena' => '123456'
+  ':usuario' => $usuario,
+  ':contrasena' => $contrasena
 ));
 
 $login = $statement->fetch();
-print_r($login);
+
 if ($login!=false) {
   # Inicia sesion solo si el usuario existe
   session_start();
   # Almacenamos los datos del usuario en la sesion
-  $_SESSION['idalumno'] = $login['idAlumno'];  # id del alumno
-  $_SESSION['usuario']= $login['User'] ;  # Carnet del alumno
+  $_SESSION['idalumno'] = $login['idalumno'];  # id del alumno
+  $_SESSION['usuario']=$usuario ;  # Carnet del alumno
   $_SESSION['nombre'] = $login['nombre'];
   $_SESSION['apellido'] = $login['apellido'];
 
 
-  //header('Location: ../index.php');
+  header('Location: ../index.php');
 }
+
+?>
