@@ -90,3 +90,34 @@ body, html {
   border-right: 1px solid #CFD8DC;
 
 }
+
+/*Aquí comienza el cuerpo de la página*/
+
+.heading h1 {
+  margin: 0;
+    padding: 0;
+    font-size: 1.3em;
+
+}
+
+.heading h1 i.fa.fa-exclamation-circle {
+    color: #FFA000;
+
+}
+
+.heading h1 i.fa.fa-user {
+  color: #388E3C;
+}
+
+.heading {
+  padding: 15px;
+  border: 1px solid #CFD8DC;
+  border-bottom: 0;
+}
+
+.information {
+  margin: 0;
+  padding: 15px;
+  background-color: #FFFFFF;
+  border: 1px solid #CFD8DC;
+}
