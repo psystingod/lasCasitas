@@ -83,7 +83,20 @@
                   <h1><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Datos personales</h1>
               </div>
               <div class="information">
-                  <p></p>
+                  <table class="table table-striped">
+                      <tr>
+                          <th>Nombre</th>
+                          <th>Apellido</th>
+                      </tr>
+                      <?php
+                          require('php/perfil_persona.php');
+
+                            echo "<tr><td>";
+                            echo $_SESSION['nombre']."<td></tr>";
+                            echo $_SESSION['apellido']."<td></tr>";
+                          
+                       ?>
+                  </table>
               </div>
           </div>
           </div>
