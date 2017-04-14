@@ -20,6 +20,7 @@
     <div class="nav-header">
       <nav class="top-nav">
         <div class="container-fluid">
+
           <nav class="navbar navbar-default">
               <!-- Nombre de la escuela -->
               <div class="navbar-header">
@@ -67,8 +68,25 @@
     <!---------------------------------------------------------------------->
 
     <div class="container-fluid">
-      <div class="row-fluid">
-
+      <div class="row">
+          <div class="col-md-4 left">
+              <div class="heading">
+                  <h1><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;&nbsp;Indicaciones</h1>
+              </div>
+              <div class="information">
+                  <p>A continuación se le muestra una breve descripción de cada una de las opciones del menú superior.</p>
+                  <p>Por favor lea cuidadosamente cada una de las indicaciones que se le presentan:</p>
+              </div>
+          </div>
+          <div class="col-md-8 right">
+              <div class="heading">
+                  <h1><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Datos personales</h1>
+              </div>
+              <div class="information">
+                  <p></p>
+              </div>
+          </div>
+          </div>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
