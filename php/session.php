@@ -19,8 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $cls_conexion = new Conexion();
 $conexion = $cls_conexion->Conexion();
-#Preparamos nuestra consulta
-$statement = $conexion->prepare("SELECT * FROM profesor WHERE user = :usuario AND pass = :contrasena");
+#Preparamos nuestra consulta para alumno
+$statement = $conexion->prepare(
+  "SELECT persona.idPersona, alumno.idAlumno, persona.nombre, persona.apellido, alumno.User
+  FROM alumno INNER JOIN persona ON persona.idPersona = alumno.idPersona
+  WHERE alumno.User = :usuario AND alumno.Pass = :contrasena");
 #Ejecutamos nuestra consulta
 $statement->execute(array(
   ':usuario' => $usuario,
@@ -30,12 +33,41 @@ $statement->execute(array(
 $login = $statement->fetch();
 
 if ($login!=false) {
-  #Inicia sesion solo si el usuario existe
+  # Inicia sesion solo si el usuario existe
   session_start();
-  #Si el usuario esta registrado iniciamos sesion
-  $_SESSION['usuario']=$usuario ;
+  # Almacenamos los datos del usuario en la sesion
+  $_SESSION['idalumno'] = $login['idalumno'];  # id del alumno
+  $_SESSION['usuario']=$usuario ;  # Carnet del alumno
+  $_SESSION['nombre'] = $login['nombre'] . " " . $login['apellido'];  # Nombre y apellido
+
+
   header('Location: ../index.php');
-}else {
+}
+
+#Preparamos nuestra consulta para profesores o administrativos
+$statement = $conexion->prepare(
+  "SELECT persona.idPersona, profesor.idProfesor, persona.nombre, persona.apellido, profesor.User
+   FROM profesor INNER JOIN persona ON persona.idPersona = profesor.idPersona
+   WHERE profesor.User = :usuario AND profesor.Pass = :contrasena");
+$statement->execute(array(
+  ':usuario' => $usuario,
+  ':contrasena' => $contrasena
+));
+
+$login = $statement->fetch();
+#Verificamos si el usuario es profesor
+if ($login!=false) {
+  # Inicia sesion solo si el usuario existe
+  session_start();
+  # Almacenamos los datos del usuario en la sesion
+  $_SESSION['idprofesor'] = $login['idProfesor'];  # id del alumno
+  $_SESSION['usuario']=$usuario ;  # Carnet del alumno
+  $_SESSION['nombre'] = $login['nombre'] . " " . $login['apellido'];  # Nombre y apellido
+
+  #  NOTA:  cambiar diretorio al panel de profesores
+  header('Location: ../index.php');
+}
+else {
   $errores .= "Datos incorrectos";
 }
 

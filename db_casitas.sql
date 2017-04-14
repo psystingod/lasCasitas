@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Versión del servidor:         10.1.19-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win32
--- HeidiSQL Versión:             9.4.0.5125
+-- HeidiSQL Versión:             9.4.0.5154
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -19,8 +19,6 @@ USE `dbcasitas`;
 -- Volcando estructura para tabla dbcasitas.alumno
 CREATE TABLE IF NOT EXISTS `alumno` (
   `idAlumno` int(11) NOT NULL AUTO_INCREMENT,
-  `Grado` varchar(45) DEFAULT NULL,
-  `Usuario` varchar(45) DEFAULT NULL,
   `User` varchar(45) DEFAULT NULL,
   `Pass` varchar(45) DEFAULT NULL,
   `Estado` varchar(45) DEFAULT NULL,
@@ -35,11 +33,13 @@ CREATE TABLE IF NOT EXISTS `alumno` (
   CONSTRAINT `fk_Alumno_Encargado1` FOREIGN KEY (`idEncargado`) REFERENCES `encargado` (`idEncargado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Alumno_Grado1` FOREIGN KEY (`idGrado`) REFERENCES `grado` (`idGrado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Alumno_Persona1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla dbcasitas.alumno: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla dbcasitas.alumno: ~1 rows (aproximadamente)
 DELETE FROM `alumno`;
 /*!40000 ALTER TABLE `alumno` DISABLE KEYS */;
+INSERT INTO `alumno` (`idAlumno`, `User`, `Pass`, `Estado`, `idPersona`, `idEncargado`, `idGrado`) VALUES
+	(3, 'RP12010', '123456', 'Activo', 3, 1, 9);
 /*!40000 ALTER TABLE `alumno` ENABLE KEYS */;
 
 -- Volcando estructura para tabla dbcasitas.encargado
@@ -52,11 +52,13 @@ CREATE TABLE IF NOT EXISTS `encargado` (
   UNIQUE KEY `idEncargado_UNIQUE` (`idEncargado`),
   KEY `fk_Encargado_Persona1_idx` (`idPersona`),
   CONSTRAINT `fk_Encargado_Persona1` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla dbcasitas.encargado: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla dbcasitas.encargado: ~1 rows (aproximadamente)
 DELETE FROM `encargado`;
 /*!40000 ALTER TABLE `encargado` DISABLE KEYS */;
+INSERT INTO `encargado` (`idEncargado`, `Parentesco`, `Teledono`, `idPersona`) VALUES
+	(1, 'Padre', '72728989', 4);
 /*!40000 ALTER TABLE `encargado` ENABLE KEYS */;
 
 -- Volcando estructura para tabla dbcasitas.grado
@@ -66,11 +68,21 @@ CREATE TABLE IF NOT EXISTS `grado` (
   `Anio` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idGrado`),
   UNIQUE KEY `idGrado_UNIQUE` (`idGrado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla dbcasitas.grado: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla dbcasitas.grado: ~9 rows (aproximadamente)
 DELETE FROM `grado`;
 /*!40000 ALTER TABLE `grado` DISABLE KEYS */;
+INSERT INTO `grado` (`idGrado`, `Nombre_grado`, `Anio`) VALUES
+	(1, '1º', '2017'),
+	(2, '2º', '2017'),
+	(3, '3º', '2017'),
+	(4, '4º', '2017'),
+	(5, '5º', '2017'),
+	(6, '6º', '2017'),
+	(7, '7º', '2017'),
+	(8, '8º', '2017'),
+	(9, '9º', '2017');
 /*!40000 ALTER TABLE `grado` ENABLE KEYS */;
 
 -- Volcando estructura para tabla dbcasitas.materia
@@ -161,14 +173,16 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `Documento` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPersona`),
   UNIQUE KEY `idPersona_UNIQUE` (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla dbcasitas.persona: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla dbcasitas.persona: ~4 rows (aproximadamente)
 DELETE FROM `persona`;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
 INSERT INTO `persona` (`idPersona`, `Nombre`, `Apellido`, `Genero`, `Edad`, `Documento`) VALUES
 	(1, 'Wilber', 'Mendez', 'M', '1994-06-30', '05017330-8'),
-	(2, 'Rebeca', 'Diaz', 'f', '1994-09-27', '01024789-1');
+	(2, 'Rebeca', 'Diaz', 'f', '1994-09-27', '01024789-1'),
+	(3, 'Juan', 'Rodriguez', 'M', '2002-04-13', 'RP12010'),
+	(4, 'Pedro', 'Rodriguez', 'M', '1990-05-17', '09875420-2');
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 
 -- Volcando estructura para tabla dbcasitas.profesor
