@@ -29,7 +29,7 @@
               <!-- Nombre del alumno logeado -->
               <ul class="nav navbar-nav pull-right">
                 <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?php echo $_SESSION["nombre"]; ?> <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?php echo $_SESSION["nombre_completo"]; ?> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="php/logout.php">Salir</a></li>
                 </ul>
@@ -89,12 +89,12 @@
                           <th>Apellido</th>
                       </tr>
                       <?php
-                          require('php/perfil_persona.php');
+                          // require('php/perfil_persona.php');
 
                             echo "<tr><td>";
                             echo $_SESSION['nombre']."<td></tr>";
                             echo $_SESSION['apellido']."<td></tr>";
-                          
+
                        ?>
                   </table>
               </div>
