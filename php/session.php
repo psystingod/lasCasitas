@@ -34,13 +34,12 @@ if ($login!=false) {
   # Inicia sesion solo si el usuario existe
   session_start();
   # Almacenamos los datos del usuario en la sesion
-  $_SESSION['idalumno'] = $login['idalumno'];  # id del alumno
+  $_SESSION['idalumno'] = $login['idAlumno'];  # id del alumno
   $_SESSION['usuario']=$usuario ;  # Carnet del alumno
   $_SESSION['contrasena'] =$contrasena;
   $_SESSION['nombre'] = $login['NombreAlumno'];
   $_SESSION['apellido'] = $login['ApellidoAlumno'];
   $_SESSION['nombre_completo'] = $login['NombreAlumno'] . " " . $login['ApellidoAlumno'];  # Nombre y apellido
-
 
   header('Location: ../index.php');
 }

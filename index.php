@@ -1,7 +1,8 @@
 <?php
+    session_start();
     require("php/user_info.php");
     $user_info = new UserInfo();
-    $array_user_info = $user_info->show();
+    $array_user_info = $user_info->show($_SESSION['idalumno']);
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
   </head>
   <body>
     <?php
-      session_start();
+      // session_start();
       if(!isset($_SESSION["usuario"])) {
         header('Location: login.php');
       }
