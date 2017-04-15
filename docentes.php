@@ -202,7 +202,8 @@
                    
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-block btn-lg btn-success">Registrar</button>
+                            <!-- Faltaba name y value $_POST['submit'] no estaba seteado no tenia valor por lo que no podia entrar en la centencia if ( !empty($_POST['submit']) )  -->
+                            <button type="submit" name="submit" value="submit" class="btn btn-block btn-lg btn-success">Registrar</button>
                         </div>
                     </div>
                  
