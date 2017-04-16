@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Oswald">
 
   </head>
   <body>
@@ -38,7 +42,7 @@
                 <input type="checkbox"> Recuerdame
               </label>
             </div>
-            <button type="submit" class="btn btn-primary ">Ingresar</button>
+            <button type="submit" class="btn btn-block btn-primary ">Ingresar</button>
           </form>
         </div>
       </div>

@@ -1,4 +1,5 @@
 html, body {
+  font-family: 'Roboto';
   width: 100%;
   height: 100%;
 }
@@ -18,6 +19,7 @@ html, body {
 
 .top_login h2 {
   color: #FFFFFF;
+  font-family: 'Oswald';
   text-align: center;
   margin-top: 7%;
 }

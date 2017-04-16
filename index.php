@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/bootstrap-responsive.css">
     <link rel="stylesheet" href="fontAwesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto">
     <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
