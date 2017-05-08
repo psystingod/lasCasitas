@@ -1,18 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-04-2017 a las 17:58:56
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Tiempo de generación: 08-05-2017 a las 07:27:32
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-DROP DATABASE IF EXISTS dbcasitas;
-CREATE DATABASE dbcasitas;
-USE dbcasitas;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -36,7 +33,7 @@ CREATE TABLE `alumno` (
   `EdadAlumno` date DEFAULT NULL,
   `GeneroAlumno` varchar(45) DEFAULT NULL,
   `Carnet` varchar(45) DEFAULT NULL,
-  `Pass` varchar(45) DEFAULT NULL,
+  `Pass` varchar(300) DEFAULT NULL,
   `Estado` varchar(45) DEFAULT NULL,
   `idEncargado` int(11) NOT NULL,
   `idGrado` int(11) NOT NULL
@@ -47,7 +44,7 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`idAlumno`, `NombreAlumno`, `ApellidoAlumno`, `EdadAlumno`, `GeneroAlumno`, `Carnet`, `Pass`, `Estado`, `idEncargado`, `idGrado`) VALUES
-(2, 'Juan Goku', 'Rodriguez Perez', '2001-04-14', 'M', 'rp12010', '123456', 'activo', 1, 9);
+(19, 'Goku Fernando', 'Rodríguez Pérez', '2003-04-11', 'Maculino', 'rp13010', 'e05e4eb4fb3579928ae70cdaaae95eb46f1d2831ae3308a89b44ac421adc1c1b3c98fa5e8e02ac408d32b662a065f446f835e4cb326da65de5b07c3f9a88018d', 'activo', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -63,15 +60,16 @@ CREATE TABLE `encargado` (
   `GeneroEncargado` varchar(45) DEFAULT NULL,
   `DUIEncargado` varchar(45) DEFAULT NULL,
   `Parentesco` varchar(45) DEFAULT NULL,
-  `Teledono` varchar(45) DEFAULT NULL
+  `Telefono` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `encargado`
 --
 
-INSERT INTO `encargado` (`idEncargado`, `NombreEncargado`, `ApellidoEncargado`, `EdadEncargado`, `GeneroEncargado`, `DUIEncargado`, `Parentesco`, `Teledono`) VALUES
-(1, 'Pedro Antonio', 'Rodriguez Perez', '1990-04-14', 'M', '12345434-0', 'Padre', '77123455');
+INSERT INTO `encargado` (`idEncargado`, `NombreEncargado`, `ApellidoEncargado`, `EdadEncargado`, `GeneroEncargado`, `DUIEncargado`, `Parentesco`, `Telefono`) VALUES
+(1, 'Pedro Antonio', 'Rodriguez Perez', '1990-04-14', 'M', '12345434-0', 'Padre', '77123455'),
+(5, 'Maria Antonia', 'Ramirez', '1990-05-08', 'Femenino', '99182813773-9', 'Madre', '7777-7777');
 
 -- --------------------------------------------------------
 
@@ -177,7 +175,7 @@ CREATE TABLE `profesor` (
   `DUIProfesor` varchar(45) DEFAULT NULL,
   `Especialidad` varchar(45) DEFAULT NULL,
   `User` varchar(45) DEFAULT NULL,
-  `Pass` varchar(45) DEFAULT NULL,
+  `Pass` varchar(300) DEFAULT NULL,
   `Estado` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -186,8 +184,8 @@ CREATE TABLE `profesor` (
 --
 
 INSERT INTO `profesor` (`idProfesor`, `NombreProfesor`, `ApellidoProfesor`, `EdadProfesor`, `GeneroProfesor`, `DUIProfesor`, `Especialidad`, `User`, `Pass`, `Estado`) VALUES
-(1, 'Wilber David', 'Méndez Rodriguez', '1994-06-30', 'M', '05017330-8', 'Informatica', 'tmsh', '10203040', 'activo'),
-(2, 'Rebeca Abigail', 'Diaz Orellana', '1994-09-27', 'F', '03928712-2', 'Analisis Numerico', 'rbk', '123456', 'activo');
+(4, 'Wilber David', 'Méndez Rodríguez', '1994-06-30', 'Maculino', '05017330-8', 'Informática', 'tmsh', 'e6ecb29c15b63f878db83ee7936163e4868815723bcec94f457150b435e52ac1e9a281c84a5346ee768dffb5a7943e9ad028f98850abb66addca4bda0669485e', 'activo'),
+(5, 'Jonathan', 'Centeno', '1994-05-06', 'Maculino', '123456789-9', 'Educacion Física', 'jota', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', 'activo');
 
 --
 -- Índices para tablas volcadas
@@ -257,12 +255,12 @@ ALTER TABLE `profesor`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `encargado`
 --
 ALTER TABLE `encargado`
-  MODIFY `idEncargado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idEncargado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `grado`
 --
@@ -287,7 +285,7 @@ ALTER TABLE `notas`
 -- AUTO_INCREMENT de la tabla `profesor`
 --
 ALTER TABLE `profesor`
-  MODIFY `idProfesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idProfesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restricciones para tablas volcadas
 --

@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if(!isset($_SESSION["usuario"])) {
+      header('Location: login.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,12 +22,6 @@
     <script src="js/bootstrap.min.js"></script>
   </head>
   <body>
-    <?php
-      // session_start();
-      if(!isset($_SESSION["usuario"])) {
-        header('Location: login.php');
-      }
-     ?>
     <div class="nav-header">
       <nav class="top-nav">
         <div class="container-fluid">
@@ -81,7 +79,7 @@
                   <h1><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;&nbsp;Indicaciones</h1>
               </div>
               <div class="information">
-                  <p class="alert alert-info">En el formulario del lado derecho puede registrar un nuevo alumno que será añadido a la base de datos.</p>
+                  <p class="alert alert-info">En el formulario del lado derecho puede registrar a un nuevo padre o madre de familia que será añadido a la base de datos.</p>
                   <p class="alert alert-info">Por favor Rellene todos los campos cuidadosamente verificando que los nombres y apellidos han sido escritos correctamente, así como todos los demás datos.</p>
               </div>
           </div>
@@ -90,8 +88,9 @@
                   <h1><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Datos personales</h1>
               </div>
               <div class="information">
-                <!--Inicio del form-->
-                  <form action="php/student_insert.php" method="post">
+
+                <!-------------Inicio del form---------------->
+                  <form action="php/parent_insert.php" method="post">
                     <div class="form-group">
                       <label for="names">Nombres</label>
                       <input type="input" class="form-control" id="names" name="names" placeholder="Nombre completo">
@@ -99,6 +98,10 @@
                     <div class="form-group">
                       <label for="lastname">Apellidos</label>
                       <input type="input" class="form-control" id="lastname" name="lastname" placeholder="Apellidos">
+                    </div>
+                    <div class="form-group">
+                      <label for="dui">DUI</label>
+                      <input type="input" class="form-control" id="dui" name="dui" placeholder="Numero de DUI">
                     </div>
                     <div class="form-group">
                       <label for="birth">Fecha de nacimiento</label>
@@ -162,20 +165,19 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="grade">Grado</label>
+                      <label for="relation">Parentesco</label>
                       <div class="row">
                         <div class="col-xs-4">
-                          <select class="form-control" id="grade" name="grade">
-                            <option>Seleccione el grado</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
+                          <select class="form-control" id="relation" name="relation">
+                            <option>Seleccione el parentesco</option>
+                            <option value="Madre">Madre</option>
+                            <option value="Padre">Padre</option>
+                            <option value="Abuela">Abuela</option>
+                            <option value="Abuelo">Abuelo</option>
+                            <option value="Tía">Tía</option>
+                            <option value="Tío">Tío</option>
+                            <option value="Hermana">Hermana</option>
+                            <option value="Hermano">Hermano</option>
                           </select>
                         </div>
                       </div>
@@ -193,8 +195,9 @@
 
                     <div class="row">
                     <div class="form-group">
-                        <div class="col-xs-3">
-                          <input type="input" class="form-control" id="carnet" name="carnet" placeholder="Carnet de estudiante">
+                        <div class="col-xs-4">
+                        <label for="phone">Teléfono</label>
+                          <input type="input" class="form-control" id="phone" name="phone" placeholder="Teléfono">
                         </div>
                     </div>
                   </div>
@@ -202,7 +205,6 @@
                    
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- Faltaba name y value $_POST['submit'] no estaba seteado no tenia valor por lo que no podia entrar en la centencia if ( !empty($_POST['submit']) )  -->
                             <button type="submit" name="submit" value="submit" class="btn btn-block btn-lg btn-success">Registrar</button>
                         </div>
                     </div>
