@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   #Si los datos han sido enviados almacenamos nombre y contrasnia en variables
   $usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
   $contrasena = filter_var(strtolower($_POST['contrasena']), FILTER_SANITIZE_STRING);
+  $contrasena = hash('sha512', $contrasena);
 }
 
 
