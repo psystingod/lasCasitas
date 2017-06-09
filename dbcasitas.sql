@@ -18,8 +18,8 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `dbcasitas`
---
-
+CREATE DATABASE dbcasitas;
+USE dbcasitas;
 -- --------------------------------------------------------
 
 --

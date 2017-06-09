@@ -60,11 +60,11 @@
           <!-- Menú principal -->
           <div class="collapse navbar-collapse" id="menuPrincipal">
             <ul class="nav navbar-nav">
-              <li class=""><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">(current)</span><br>Inicio</a></li>
-              <li><a href="#" data-toggle = "modal" data-target = "#ingresarNota"><i class="fa fa-address-card" aria-hidden="true"></i><br>Ingresar notas</a></li>
-              <li class="active"><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i><br>Registrar alumno</a></li>
-              <li><a href="#"><i class="fa fa-question" aria-hidden="true"></i><br>Pendiente</a></li>
-              <li><a href="#"><i class="fa fa-question" aria-hidden="true"></i><br>Pendiente</a></li>
+              <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="sr-only">(current)</span><br>Inicio</a></li>
+              <li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i><br>Notas</a></li>
+              <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><br>Promedio</a></li>
+              <li><a href="#"><i class="fa fa-check" aria-hidden="true"></i><br>Conducta</a></li>
+              <li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i><br>Evaluaciones</a></li>
             </ul>
 
           </div><!-- /.navbar-collapse -->
@@ -82,7 +82,6 @@
               </div>
               <div class="information">
                   <p class="alert alert-info">En el formulario del lado derecho puede registrar un nuevo alumno que será añadido a la base de datos.</p>
-                  <p class="alert alert-info">La contraseña del alumno sera inicialmente su carnet, luego el podrá cambiarla si asi lo decea.</p>
                   <p class="alert alert-info">Por favor Rellene todos los campos cuidadosamente verificando que los nombres y apellidos han sido escritos correctamente, así como todos los demás datos.</p>
               </div>
           </div>
@@ -194,20 +193,16 @@
 
                     <div class="row">
                     <div class="form-group">
-                        <div class="col-xs-4">
-                          <label for="carnet">Carnet</label>
+                        <div class="col-xs-3">
                           <input type="input" class="form-control" id="carnet" name="carnet" placeholder="Carnet de estudiante">
                         </div>
                     </div>
                   </div>
-
-                  <!-- Se necesita incertar un buscador en tiempo real para asignar el encargado -->
                   <br>
                    
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- Faltaba name y value $_POST['submit'] no estaba seteado no tenia valor por lo que no podia entrar en la centencia if ( !empty($_POST['submit']) )  -->
-                            <button type="submit" name="submit" value="submit" class="btn btn-block btn-lg btn-success">Registrar</button>
+                            <button type="submit" class="btn btn-block btn-lg btn-success">Registrar</button>
                         </div>
                     </div>
                  
@@ -216,42 +211,6 @@
           </div>
           </div>
       </div>
-      <!-- VENTANA INGRESAR NOTAS -->
-          <div class="modal fade" id="ingresarNota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="exampleModalLabel">Selecione el grado y la materia en la que desea ingresar notas</h4>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                        <label for="grado" class="control-label">Seleccione un grado:</label>
-                        <select class="form-control" id="grado" name="grado">
-                          <option value ="">---Grado---</option>
-                          <option value ="1">Séptimo</option>
-                          <option value ="2">Noveno</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="materia" class="control-label">Sleccione una materia:</label>
-                      <select class="form-control" id="materia" name="materia">
-                        <option value ="">---Materia---</option>
-                        <option value ="1">Informática</option>
-                        <option value ="2">Lenguaje</option>
-                      </select>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary">Aceptar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!----------------------------------------------------------------------------------------- -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
