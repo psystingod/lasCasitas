@@ -39,8 +39,8 @@
             ':Pass' => $pass,
             ':Estado' => 'activo'
             ));
-
-          echo "Datos registrados!!";
+          header('Location: ../registrar_alumno.php');
+          //echo "Datos registrados!!";
         }
 
       //$result = $stmt->fetchAll(PDO::FETCH_ASSOC); // La consulta es guardada en un array asociativo

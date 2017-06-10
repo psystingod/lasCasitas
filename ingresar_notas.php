@@ -1,8 +1,8 @@
 <?php
     session_start();
-    require("php/user_info.php");
-    $user_info = new UserInfo();
-    $array_user_info = $user_info->show($_SESSION['idalumno']);
+    require("php/student_info.php");
+    $student_info = new StudentInfo();
+    $array_student_info = $student_info->show();
 ?>
 
 <!DOCTYPE html>
@@ -92,13 +92,22 @@
                             <th>Carnet</th>
                             <th>Ponderación</th>
                               <th><select class="form-control" name="numeroDeNota" id="numeroDeNota">
-                                <option value="1">Nota 1</option>
-                                <option value="2">Nota 2</option>
-                                <option value="3">Nota 3</option>
+                                <option value="1">Nota 1 primer período</option>
+                                <option value="2">Nota 2 primer período</option>
+                                <option value="3">Nota 3 primer período</option>
+                                <option value="4">Nota 1 segundo período</option>
+                                <option value="5">Nota 2 segundo período</option>
+                                <option value="6">Nota 3 segundo período</option>
+                                <option value="7">Nota 1 tercer período</option>
+                                <option value="8">Nota 2 tercer período</option>
+                                <option value="9">Nota 3 tercer período</option>
+                                <option value="10">Nota 1 cuarto período</option>
+                                <option value="11">Nota 2 cuarto período</option>
+                                <option value="12">Nota 3 cuarto período</option>
                               </select></th>
                         </tr>
                         <?php
-                            foreach ($array_user_info as $key) {
+                            foreach ($array_student_info as $key) {
                               echo "<tr><td>";
                               echo $key["NombreAlumno"] . "</td><td>";
                               echo $key["ApellidoAlumno"] . "</td><td>";
