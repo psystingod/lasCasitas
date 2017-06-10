@@ -10,7 +10,7 @@
     }
     public function show($idAlumno)
     {
-      $sql = "SELECT alumno.NombreAlumno, alumno.ApellidoAlumno from alumno
+      $sql = "SELECT alumno.NombreAlumno, alumno.ApellidoAlumno, alumno.GeneroAlumno, alumno.Carnet from alumno
               WHERE idAlumno = :idAlumno"; // Guardamos la consulta en una variable para mayor manejo
       $stmt = $this->conexion_db->prepare($sql);
       $stmt->execute(array(':idAlumno' => $idAlumno));
