@@ -26,6 +26,17 @@
         header('Location: login.php');
       }
      ?>
+
+<?php
+
+    //$conex = new Conexion();
+    //$conex1 = $conex->Conexion();
+    //$nota = (double)$_POST['nota'];
+    //$sql = "INSERT INTO notas (N1) VALUES (:nota)"; // Guardamos la consulta en una variable para mayor manejo
+    //$stmt = $conex1->prepare($sql);
+    //$stmt->execute(array(':nota' => $nota));
+    //header("Location: ingresar_notas.php");
+ ?>
     <div class="nav-header">
       <nav class="top-nav">
         <div class="container-fluid">
@@ -84,7 +95,7 @@
               </div>
               <div class="information">
                   <table class="table">
-                    <form action="">
+                    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
                         <tr>
                             <th>Nombre</th>
                             <th>Apellido</th>
@@ -105,6 +116,8 @@
                                 <option value="11">Nota 2 cuarto período</option>
                                 <option value="12">Nota 3 cuarto período</option>
                               </select></th>
+                            <th></th>
+                            
                         </tr>
                         <?php
                             foreach ($array_student_info as $key) {
@@ -113,8 +126,9 @@
                               echo $key["ApellidoAlumno"] . "</td><td>";
                               echo $key["GeneroAlumno"] . "</td><td>";
                               echo $key["Carnet"] . "</td><td>";
-                              echo "<input type='input' class='form-control' id='lastname' name='lastname' placeholder='%'>" . "</td><td>";
-                              echo "<input type='input' class='form-control' id='lastname' name='lastname' placeholder='Nota'>" . "</td><td>";
+                              echo "<input type='input' class='form-control' id='ponderacion' name='ponderacion' placeholder='%'>" . "</td><td>";
+                              echo "<input type='input' class='form-control' id='nota' name='nota' placeholder='Nota'>" . "</td><td>";
+                              echo "<input type='submit' name='submit' value='Guardar' class='btn btn-block btn-md btn-info'></a>" . "</td>";
                             } 
                           ?>
                       
